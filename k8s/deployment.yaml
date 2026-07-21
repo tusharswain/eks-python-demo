@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-python-demo
+  labels:
+    app: eks-python-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eks-python-demo
+  template:
+    metadata:
+      labels:
+        app: eks-python-demo
+    spec:
+      containers:
+      - name: app
+        image: IMAGE_PLACEHOLDER
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
