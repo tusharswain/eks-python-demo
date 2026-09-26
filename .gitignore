@@ -20,3 +20,6 @@ __pycache__/
 
 # logs
 *.log
+
+# Local helper notes
+recreateenv.txt

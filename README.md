@@ -1,5 +1,7 @@
 # EKS Python Demo
 
+[![CI](https://github.com/tusharswain/eks-python-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/tusharswain/eks-python-demo/actions/workflows/ci.yml)
+
 A minimal Flask app deployed to **Amazon EKS** with a managed node group and exposed through a Kubernetes `LoadBalancer` Service.
 
 ## What it does
